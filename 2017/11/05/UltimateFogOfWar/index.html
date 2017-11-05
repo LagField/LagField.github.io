@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Unity插件研究 | 学海无涯苦作舟</title>
+  <title>(Unity插件)UltimateFogOfWar | 学海无涯苦作舟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这段时间看了好几个插件的实现，感觉受益良多，觉得可以把一些学到的东西记录一下，如果之后有地方能用上的话，能够直接查阅。正好现在的公司购买了大量的插件可以拿来学习。但是能写到个人博客上的插件类型还是有限制的，基本上大型插件项目就排除在外了，因为光是学会正确掌握使用都需要一段时间，读代码学到的东西也没有时间系统的整理出来，况且大型插件很多核心的东西都做了封装，读不到或者读起来很麻烦。所以以后应该只会">
+  <meta name="description" content="前段时间项目需要加入迷雾系统，需求就是照着王者荣耀那种做，但是因为游戏性质的原因，实现上仍然要考虑很多细节效果。所以就把unity插件商店里面下载评价多的迷雾插件都看了一遍，目前来看实现比较完整的就是这一款，Ultimate Fog of War ，以下简称UFOW。下面写一下(超)简单的分析。">
 <meta name="keywords" content="Unity,Plugin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unity插件研究">
-<meta property="og:url" content="http://yoursite.com/2017/10/21/Unity插件研究/index.html">
+<meta property="og:title" content="(Unity插件)UltimateFogOfWar">
+<meta property="og:url" content="http://yoursite.com/2017/11/05/UltimateFogOfWar/index.html">
 <meta property="og:site_name" content="学海无涯苦作舟">
-<meta property="og:description" content="这段时间看了好几个插件的实现，感觉受益良多，觉得可以把一些学到的东西记录一下，如果之后有地方能用上的话，能够直接查阅。正好现在的公司购买了大量的插件可以拿来学习。但是能写到个人博客上的插件类型还是有限制的，基本上大型插件项目就排除在外了，因为光是学会正确掌握使用都需要一段时间，读代码学到的东西也没有时间系统的整理出来，况且大型插件很多核心的东西都做了封装，读不到或者读起来很麻烦。所以以后应该只会">
+<meta property="og:description" content="前段时间项目需要加入迷雾系统，需求就是照着王者荣耀那种做，但是因为游戏性质的原因，实现上仍然要考虑很多细节效果。所以就把unity插件商店里面下载评价多的迷雾插件都看了一遍，目前来看实现比较完整的就是这一款，Ultimate Fog of War ，以下简称UFOW。下面写一下(超)简单的分析。">
 <meta property="og:locale" content="zh-Hanz">
-<meta property="og:image" content="http://oxwaydqud.bkt.clouddn.com/04.gif">
-<meta property="og:updated_time" content="2017-10-21T01:36:16.389Z">
+<meta property="og:updated_time" content="2017-11-05T13:57:56.612Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Unity插件研究">
-<meta name="twitter:description" content="这段时间看了好几个插件的实现，感觉受益良多，觉得可以把一些学到的东西记录一下，如果之后有地方能用上的话，能够直接查阅。正好现在的公司购买了大量的插件可以拿来学习。但是能写到个人博客上的插件类型还是有限制的，基本上大型插件项目就排除在外了，因为光是学会正确掌握使用都需要一段时间，读代码学到的东西也没有时间系统的整理出来，况且大型插件很多核心的东西都做了封装，读不到或者读起来很麻烦。所以以后应该只会">
-<meta name="twitter:image" content="http://oxwaydqud.bkt.clouddn.com/04.gif">
+<meta name="twitter:title" content="(Unity插件)UltimateFogOfWar">
+<meta name="twitter:description" content="前段时间项目需要加入迷雾系统，需求就是照着王者荣耀那种做，但是因为游戏性质的原因，实现上仍然要考虑很多细节效果。所以就把unity插件商店里面下载评价多的迷雾插件都看了一遍，目前来看实现比较完整的就是这一款，Ultimate Fog of War ，以下简称UFOW。下面写一下(超)简单的分析。">
   
     <link rel="alternative" href="/atom.xml" title="学海无涯苦作舟" type="application/atom+xml">
   
@@ -155,27 +153,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Unity插件研究" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-UltimateFogOfWar" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Unity插件研究
+      (Unity插件)UltimateFogOfWar
     </h1>
   
 
         
-        <a href="/2017/10/21/Unity插件研究/" class="archive-article-date">
-  	<time datetime="2017-10-21T01:23:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-21</time>
+        <a href="/2017/11/05/UltimateFogOfWar/" class="archive-article-date">
+  	<time datetime="2017-11-05T13:54:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 这段时间看了好几个插件的实现，感觉受益良多，觉得可以把一些学到的东西记录一下，如果之后有地方能用上的话，能够直接查阅。正好现在的公司购买了大量的插件可以拿来学习。但是能写到个人博客上的插件类型还是有限制的，基本上大型插件项目就排除在外了，因为光是学会正确掌握使用都需要一段时间，读代码学到的东西也没有时间系统的整理出来，况且大型插件很多核心的东西都做了封装，读不到或者读起来很麻烦。所以以后应该只会更新一些小而精的插件的学习笔记，图形方面的插件会占比较大的比重。<br><img src="http://oxwaydqud.bkt.clouddn.com/04.gif" alt=""></p>
+        <p>前段时间项目需要加入迷雾系统，需求就是照着王者荣耀那种做，但是因为游戏性质的原因，实现上仍然要考虑很多细节效果。所以就把unity插件商店里面下载评价多的迷雾插件都看了一遍，目前来看实现比较完整的就是这一款，<a href="https://www.assetstore.unity3d.com/en/#!/content/76011" title="Ultimate Fog of War " target="_blank" rel="external">Ultimate Fog of War </a>，以下简称UFOW。下面写一下(超)简单的分析。</p>
+<a id="more"></a>
+<h4 id="迷雾生成"><a href="#迷雾生成" class="headerlink" title="迷雾生成"></a>迷雾生成</h4><p>要生成迷雾，首先就需要知道地图的阻挡信息。部分插件使用的是射线的方式，UFOW采用预先生成resistence map的方式，resistence map就是将整个地图的高度信息存储到一张RGBA图当中，具体实现在FogOfWarManager.cs的AnalyzeTerrain方法中，地图的高度信息存储在g通道中，其他三个通道实现了一些其他阻挡信息的存储，比如动态障碍等等，因为提供了所有源代码，可以根据项目需求进行修改。<br>预先生成高度图的好处是，不需要进行大量的物理碰撞检测，如果项目的瓶颈在物理效率上，这是个不错的备用方案。<br>要实现迷雾，首先就要生成迷雾图，使用一张texture来存储这个信息是比较通用的方法，一来计算比较直观，二来可以直接看到生成的迷雾图是什么样子的方便调试，这张图一般来说需要覆盖整张地图，这样世界空间的每一个位置都映射到迷雾图的一个像素当中，读取图中的信息就能知道这个位置是否在迷雾当中。所以迷雾的效果就和这张图的大小和后期对这张图的处理有关系。</p>
+<p>该插件支持多阵营迷雾，每一个阵营摊开的迷雾写入到对应阵营的fogofwar texture当中，在切换阵营的时候切换对应的texture到shader当中，但是计算的时候是所有阵营的迷雾都在同时计算，如果阵营多的话需要注意性能开销。<br>整个迷雾的生成算法基本都在FogOfWar.cs代码中，调用是从FogOfWarManager的Update方法中开始的。计算的核心部分代码是FogOfWar中的RevealFog、CalculateFOV、CastLight三个方法。通过循环每一个阵营的每一个需要摊开迷雾的单位，计算出每一个单位摊开迷雾后的迷雾图，并存储在一个buffer一维颜色数组中，迷雾被摊开的像素的r通道被置为1。在开启多线程的情况下，计算完成的buffer数组会被copy到主线程使用的颜色数组中。</p>
+<p>当每一次计算完成之前，都需要对迷雾图做一次整体的处理，插件具体的做法在ResetFog方法中。对每一张迷雾图的每一个像素，根据r通道的信息，改写g通道的值（lerp），g通道记录了当前位置迷雾摊开的过渡效果，也就是迷雾的过渡效果都在CPU进行计算。</p>
+<p>迷雾图生成之后，如果用户选择开启blur效果，插件会将迷雾图做一次blit操作进行高斯模糊。</p>
+<h4 id="迷雾的表现"><a href="#迷雾的表现" class="headerlink" title="迷雾的表现"></a>迷雾的表现</h4><p>目前Unity商店上找到的几个迷雾插件，实现迷雾显示效果基本就两种方法，一是使用后期效果，将迷雾图映射到屏幕上，在后期处理中将对应像素亮度调低。第二种就是UFOW这种，通过改变场景内所有要受到迷雾影响物体的渲染，要么用projector来改变，要么直接替换对应的shader。而UFOW采用最后一种方法，插件内置了大概几百上千个重新写的shader，大部分都对应了unity的内置着色器的迷雾版本，主要是为了方便用户直接替换对应的着色器来实现迷雾效果。这里有个比较坑的地方是所有的shader插件都放在了resources文件夹里面，这样会导致打包的时候shader编译时间会特别长，而且包体也会变大，所以使用插件的第一件事就是把这些资源从resources文件夹里面挪出来。<br>在shader中，最重要的算法在FogOfWarMath.cginc文件中<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">float</span> <span class="title">Remap</span><span class="params">(<span class="keyword">float</span> value, <span class="keyword">float</span> From1, <span class="keyword">float</span> To1, <span class="keyword">float</span> From2, <span class="keyword">float</span> To2)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="keyword">return</span> From2 + (value - From1) * (To2 - From2) / (To1 - From1);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Remap方法需要shader传入当前片元的世界位置，地图原点位置，地图宽度及地图缩放比例等，除了世界位置，其他参数都由插件来传入，方法返回对应位置的迷雾图的UV图，使用这个UV来对迷雾图进行采样，g通道决定了该片元的最终颜色。插件还提供了一个示例shader UltimateFogOfWar_VERT_FRAG_TEMPLATE。需要添加的代码在片元阶段：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// sample the texture</span></div><div class="line">fixed4 col = tex2D(_MainTex, i.uv);</div><div class="line"></div><div class="line"><span class="comment">//FOG OF WAR</span></div><div class="line">float2 UV = float2(Remap(i.worldPos.x, _Origin.x, _Origin.x + _LevelWidth * _Scale, <span class="number">0</span>, <span class="number">1</span>), Remap(i.worldPos.z, _Origin.z, _Origin.z + _LevelHeight * _Scale, <span class="number">0</span>, <span class="number">1</span>));</div><div class="line">half4 Fog = tex2D(_FogOfWar, UV);</div><div class="line"></div><div class="line"><span class="keyword">return</span> col * Fog.g;<span class="comment">//FOG OF WAR</span></div></pre></td></tr></table></figure></p>
+<hr>
+<p>插件逻辑还是很清晰的，提供了所有源代码，根据项目需求来修改也是非常方便。但是如果对应的地图比较大的话，可能使用起来就比较麻烦。插件默认能使用的最大迷雾图分辨率是512 X 512。当然通过修改代码可以支持更大的分辨率，但是这样一来CPU的负担会变得很大，从自己测试来看，当使用到1024分辨率的时候，就会出现卡顿，排查发现是多线程执行的时候几次ARRAY.COPY操作消耗了很多CPU时间，可以通过只计算和赋值主要角色周围的像素来避免多余的性能消耗。对于地图很大，又有较小的出入口的地方，要做出比较能接受的迷雾效果，就需要继续提高分辨率，这时候迷雾图的内存占用又会指数上升。另外要使用迷雾，场景内所有物件的shader都要替换，怎么看都是一个比较麻烦的事情。所以这个插件可能更适合MOBA类这种地图固定且地图面积不是很大的情况。</p>
+<p>整个文章写的比较简略，很多细节还没讲到。项目上，测试了几轮后最终决定采用另外一套迷雾的生成方法，实现还是挺有意思的，下一篇文章再仔细讲一下。</p>
 
       
 
@@ -249,7 +257,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/21/Unity插件研究/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/05/UltimateFogOfWar/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -263,15 +271,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/10/22/草的效果/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          草的效果
-        
-      </div>
-    </a>
   
+    <a href="/2017/10/22/草的效果/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">草的效果</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
